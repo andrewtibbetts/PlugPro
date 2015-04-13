@@ -60,6 +60,21 @@ room.on("load", function(){
 		$('body').append( updatesModalView.el );
 		updatesModalView.render();
 	}
+	
+	// Mute / Unmute audio via spacebar
+	$('body').on('keyup',function(e){
+		if ( e.keyCode != 32 || $(e.target).prop('tagName') != 'BODY' ) return true;
+		var current_volume = API.getVolume();
+		var unmuted_volume = 75;
+		if ( $(this).data('volume') ) unmuted_volume = $(this).data('volume');
+		if ( current_volume == 0 ) {
+			API.setVolume(unmuted_volume);
+		} else {
+			API.setVolume(0);
+			$(this).data('volume',current_volume);
+		}
+		return true;
+	});
 
 });
 room.init();

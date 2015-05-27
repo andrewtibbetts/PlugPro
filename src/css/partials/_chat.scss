@@ -30,29 +30,41 @@
 	.plugpro-chat-image-container{
 		position: relative;
 
-		.plugpro-chat-image-url{
-			display: none;
-		}
 		.plugpro-chat-image{
 			max-height: 200px;
 			max-width: 100%;
 			width: auto;
 		}
-		.plugpro-chat-image-close{
+
+		.plugpro-chat-image-toggle{
+			float: left;
+			margin: 0 .25em .5em 0;
 			cursor: pointer;
-			display: none;
-			position: absolute;
-			left: 0;
-			width: 1em;
-			height: 1em;
-			font-family: "times new roman", arial;
-			font-size: 1.25rem;
-			line-height: 1;
-			text-align: center;
-			color: #fff;
 			background: rgba(255,0,0,0.5);
-			padding: .05em .1em .05em 0;
-			text-shadow: 0 .05em .1em rgba(0,0,0,0.5);
+			
+			&,
+			div {
+				width: 1em;
+				height: 1em;
+			}
+			
+			div {
+				font-family: "times new roman", arial;
+				font-size: 1.25rem;
+				line-height: 1em;
+				text-align: center;
+				color: #fff;
+				text-shadow: 0 .05em .1em rgba(0,0,0,0.5);
+				letter-spacing: .1em;
+			}
+			
+			&.no-image {
+				background: rgba(0,222,0,0.5);
+				
+				div {
+					transform: rotate(45deg) translate(-.025em,-.025em);
+				}
+			}
 		}
 	}
 }

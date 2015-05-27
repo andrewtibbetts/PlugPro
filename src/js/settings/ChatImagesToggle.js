@@ -92,22 +92,16 @@ ChatImages.prototype.addImageToChat = function( img, chatId ){
 
 	if( chatContainer ){
 		var imageContainer = chatContainer.find('.plugpro-chat-image-container');
-
-		var $closeButton = chatContainer.find('.plugpro-chat-image-close');
-		$closeButton.show();
-
-		var $imageUrl = chatContainer.find('.plugpro-chat-image-url');
+		var $toggleButton = chatContainer.find('.plugpro-chat-image-toggle');
 		var $imageWrapper = chatContainer.find('.plugpro-image-wrapper');
 
-		$closeButton.click(function(){
-			$imageWrapper.remove();
-			$imageUrl.show();
+		$toggleButton.click(function(){
+			$(this).toggleClass('no-image');
+			$imageWrapper.toggle();
 		});
 
 		imageContainer.find('.plugpro-chat-image-spinner').remove();
 		$imageWrapper.append(img);
-
-		//$closeButton.css( "left", $(img).width() );
 	}
 
 	// If currently scrolled to bottom, keep it that way when the 
